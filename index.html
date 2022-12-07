@@ -1,0 +1,451 @@
+<html>
+  <title>Spinner cara for IsOb for fun</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      perspective: 2000px;
+      --quant: 4px;
+    }
+    .spiner {
+      width: calc(80 * var(--quant));
+      height: calc(40 * var(--quant));
+     /* border: 1px solid gray;*/
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(5deg);
+    }
+    .grandparent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(8 * var(--quant));
+      height: calc(40 * var(--quant));
+     /* border: 1px solid red;*/
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transform-style: preserve-3d;
+    }
+    .parent {
+      position: absolute;
+      top: 0;
+      left: calc(9 * 8 * var(--quant));
+      width: calc(8 * var(--quant));
+      height: calc(40 * var(--quant));
+     /* border: 1px solid blue;*/
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transform-style: preserve-3d;
+    }
+    .child {
+      position: absolute;
+      top: 75%;
+      width: calc(2 * 8 * var(--quant) + 5 * var(--quant));
+      height: calc(11 * var(--quant));
+     /* border: 1px solid green;*/
+      transform-style: preserve-3d;
+      transform: translateX(calc(-13 * var(--quant))) rotateY(180deg);
+      animation: 1s ease-in-out infinite alternate slide,
+        2s ease-in-out infinite alternate hearthbit;
+    }
+    @keyframes slide {
+      to {
+        transform: translateX(calc(-72 * var(--quant))) rotateY(0deg);
+      }
+    }
+    @keyframes hearthbit {
+      from {
+        height: calc(11 * var(--quant));
+      }
+      to {
+        height: calc(11 * var(--quant) - 1px);
+      }
+    }
+    .platform {
+      /*border: 1px solid green;*/
+      position: absolute;
+      top: var(--quant);
+      left: 0;
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      transform-style: preserve-3d;
+    }
+    .car {
+      /*border: 1px solid green;*/
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform-style: preserve-3d;
+    }
+    .carBlack {
+      position: absolute;
+      top: var(--quant);
+      width: calc(8 * var(--quant));
+      height: calc(9 * var(--quant));
+      transform: translateX(calc(2 * var(--quant))) rotateY(-90deg);
+      background-color: black;
+      backface-visibility: hidden;
+    }
+    .caroFront4 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(4 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront41 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(3.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront3 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(3 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront31 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(2.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront2 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(2 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront21 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(1.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront1 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(1 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront11 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(0.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroFront0 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack11 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-0.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack1 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-1 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack21 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-1.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack2 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-2 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack31 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-2.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack3 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-3 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack41 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-4 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .caroBack4 {
+      position: absolute;
+      width: calc(2 * 8 * var(--quant));
+      height: calc(11 * var(--quant));
+      transform: translateZ(calc(-3.5 * var(--quant)));
+      background-image: url("caro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .box {
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .boxFront {
+      position: absolute;
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      transform: translateZ(calc(4 * var(--quant)));
+      background-color: pink;
+      backface-visibility: hidden;
+      background-image: url("woodbox2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .boxBack {
+      position: absolute;
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      transform: translateZ(calc(-4 * var(--quant))) rotateY(180deg);
+      background-color: rgb(255, 70, 101);
+      backface-visibility: hidden;
+      background-image: url("woodbox2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .boxRight {
+      position: absolute;
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      transform: translateX(calc(4 * var(--quant))) rotateY(90deg);
+      background-color: rgb(190, 131, 141);
+      backface-visibility: hidden;
+      background-image: url("woodbox2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .boxLeft {
+      position: absolute;
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      transform: translateX(calc(-4 * var(--quant))) rotateY(-90deg);
+      background-color: rgb(138, 7, 29);
+      backface-visibility: hidden;
+      background-image: url("woodbox2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .boxTop {
+      position: absolute;
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      transform: translateY(calc(-4 * var(--quant))) rotateX(90deg);
+      background-color: rgb(240, 3, 3);
+      backface-visibility: hidden;
+      background-image: url("woodbox2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .boxBottom {
+      position: absolute;
+      width: calc(8 * var(--quant));
+      height: calc(8 * var(--quant));
+      transform: translateY(calc(4 * var(--quant))) rotateX(-90deg);
+      background-color: rgb(233, 205, 205);
+      backface-visibility: hidden;
+      background-image: url("woodbox2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  </style>
+  <body>
+    <div id="spiner" class="spiner">
+      <div id="grandparent" class="grandparent">
+        <div id="parent" class="parent">
+          <div id="child" class="child">
+            <div class="car">
+              <div class="carBlack"></div>
+              <div class="caroFront4"></div>
+              <div class="caroFront41"></div>
+              <div class="caroFront3"></div>
+              <div class="caroFront31"></div>
+              <div class="caroFront2"></div>
+              <div class="caroFront21"></div>
+              <div class="caroFront1"></div>
+              <div class="caroFront11"></div>
+              <div class="caroFront0"></div>
+              <div class="caroBack11"></div>
+              <div class="caroBack1"></div>
+              <div class="caroBack21"></div>
+              <div class="caroBack2"></div>
+              <div class="caroBack31"></div>
+              <div class="caroBack3"></div>
+              <div class="caroBack41"></div>
+              <div class="caroBack4"></div>
+            </div>
+            <div id="platform" class="platform"></div>
+          </div>
+        </div><div class="box" number="1">
+          <div class="boxFront"></div>
+          <div class="boxBack"></div>
+          <div class="boxRight"></div>
+          <div class="boxLeft"></div>
+          <div class="boxTop"></div>
+          <div class="boxBottom"></div>
+        </div><div class="box" number="2">
+          <div class="boxFront"></div>
+          <div class="boxBack"></div>
+          <div class="boxRight"></div>
+          <div class="boxLeft"></div>
+          <div class="boxTop"></div>
+          <div class="boxBottom"></div>
+        </div><div class="box" number="3">
+          <div class="boxFront"></div>
+          <div class="boxBack"></div>
+          <div class="boxRight"></div>
+          <div class="boxLeft"></div>
+          <div class="boxTop"></div>
+          <div class="boxBottom"></div>
+        </div><div class="box" number="4">
+          <div class="boxFront"></div>
+          <div class="boxBack"></div>
+          <div class="boxRight"></div>
+          <div class="boxLeft"></div>
+          <div class="boxTop"></div>
+          <div class="boxBottom"></div>
+        </div></div>
+    </div>
+  </body>
+  <script>
+    //intialisation nodes
+    const grandparent = document.querySelector("#grandparent");
+    const parent = document.querySelector("#parent");
+    const child = document.querySelector("#child");
+    const platform = document.querySelector("#platform");
+
+    //initialisation variables and constants
+    let direction = "right";
+    const maxBoxes = document.querySelectorAll("#grandparent > .box").length;
+
+    //create grandparent observer
+    const optionGrandparent = {
+      root: grandparent,
+      rootMargin: "0px",
+      threshold: 0.98,
+    };
+    const callbackGrandparent = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (direction == "right") {
+            !platform.lastChild && platform.appendChild(grandparent.lastChild);
+          } else {
+            platform.lastChild && grandparent.appendChild(platform.lastChild);
+          }
+        } else {
+          const boxesInGrandparent = document.querySelectorAll(
+            "#grandparent > .box"
+          ).length;
+          if (boxesInGrandparent == maxBoxes) direction = "right";
+        }
+      });
+    };
+    const observerGrandparent = new IntersectionObserver(
+      callbackGrandparent,
+      optionGrandparent
+    );
+    observerGrandparent.observe(platform);
+
+    //create parent observer
+    const optionParent = {
+      root: parent,
+      rootMargin: "0px",
+      threshold: 0.98,
+    };
+    const callbackParent = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (direction == "left") {
+            !platform.lastChild && platform.appendChild(parent.lastChild);
+          } else {
+            platform.lastChild && parent.appendChild(platform.lastChild);
+          }
+        } else {
+          const boxesInParent = document.querySelectorAll("#parent >.box").length; 
+          if (boxesInParent == maxBoxes) direction = "left";
+        }
+      });
+    };
+    const observerParent = new IntersectionObserver(
+      callbackParent,
+      optionParent
+    );
+    observerParent.observe(platform);
+
+    //
+  </script>
+</html>
